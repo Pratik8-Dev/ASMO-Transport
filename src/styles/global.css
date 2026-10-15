@@ -206,6 +206,9 @@ main {
 .chart-area {
   height: 250px;
 }
+.chart--vertical-labels .chart-area {
+  height: 342px;
+}
 .lower {
   display: grid;
   grid-template-columns: 2fr 1.1fr;

@@ -182,6 +182,7 @@ export function DashboardPage() {
               title="On-Time Delivery % by Lane"
               data={rows}
               color="#6863ae"
+              verticalLabels
             />
           )}
         </AsyncPanel>

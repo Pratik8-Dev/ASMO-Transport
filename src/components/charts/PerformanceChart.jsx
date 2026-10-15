@@ -4,6 +4,7 @@ import {
   CartesianGrid,
   LabelList,
   ResponsiveContainer,
+  Text,
   Tooltip,
   XAxis,
   YAxis,
@@ -21,9 +22,34 @@ const Tick = ({ x, y, payload }) => (
     </text>
   </g>
 );
-export function PerformanceChart({ title, data, color }) {
+const VerticalTick = ({ x, y, payload }) => (
+  <g transform={`translate(${x},${y})`}>
+    <title>{String(payload.value)}</title>
+    <Text
+      x={0}
+      y={8}
+      angle={-90}
+      width={140}
+      maxLines={1}
+      textAnchor="end"
+      verticalAnchor="middle"
+      fill="#173159"
+      style={{ fontSize: "11px" }}
+    >
+      {String(payload.value)}
+    </Text>
+  </g>
+);
+export function PerformanceChart({
+  title,
+  data,
+  color,
+  verticalLabels = false,
+}) {
   return (
-    <article className="panel chart">
+    <article
+      className={`panel chart${verticalLabels ? " chart--vertical-labels" : ""}`}
+    >
       <h2>{title}</h2>
       <div className="chart-area">
         <ResponsiveContainer width="100%" height="100%">
@@ -32,7 +58,12 @@ export function PerformanceChart({ title, data, color }) {
             margin={{ top: 24, right: 12, left: 0, bottom: 48 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
-            <XAxis dataKey="name" interval={0} height={58} tick={<Tick />} />
+            <XAxis
+              dataKey="name"
+              interval={0}
+              height={verticalLabels ? 150 : 58}
+              tick={verticalLabels ? <VerticalTick /> : <Tick />}
+            />
             <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
             <Tooltip
               formatter={(v, _, item) => [

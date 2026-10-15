@@ -23,6 +23,14 @@ React/Vite POC dashboard implemented against the documented Spring Boot API cont
 - `npm run lint`
 - `npm run build`
 
+## Chart presentation
+
+The lane chart uses vertical X-axis labels at the existing font size, with extra
+chart height to preserve the plot area. Labels longer than the 140px label budget
+are ellipsized; hovering a lane label shows its full name in a native tooltip.
+The existing bar tooltip and screen-reader summary retain the full lane names
+and values. Collection-site and delivery-site chart labels are unchanged.
+
 ## Contract notes
 
 Authentication is not implemented in the documented POC. The shipment-status filter and filter-option metadata endpoints are not documented, so this UI exposes the documented `slaMet` filter and text-based exact-match filters only. Export is client-side and includes the currently loaded shipment page.
