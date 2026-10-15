@@ -1,4 +1,5 @@
 export function KpiCard({
+  icon,
   code,
   title,
   value,
@@ -10,9 +11,10 @@ export function KpiCard({
   return (
     <article className={`kpi rag-${rag.toLowerCase()}`}>
       <div className="kpi-title">
-        <strong>
-          {code} {title}
-        </strong>
+        <div className="svgicon">
+          {icon} 
+        </div>
+        <h3>{code} {title}</h3>
         {/* {standIn && <span className="badge">Stand-in</span>} */}
       </div>
       <div className="kpi-value">{value}</div>
