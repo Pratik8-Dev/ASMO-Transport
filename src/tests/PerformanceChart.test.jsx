@@ -46,39 +46,42 @@ describe("PerformanceChart", () => {
     });
   });
 
-  it("rotates every lane label and preserves full names, order and values", () => {
-    const { container } = render(
-      <PerformanceChart
-        title="By Lane"
-        data={data}
-        color="#6863ae"
-        verticalLabels
-      />,
-    );
-    expect(container.querySelector("article")).toHaveClass(
-      "chart--vertical-labels",
-    );
-    const ticks = container.querySelectorAll(
-      ".recharts-xAxis .recharts-cartesian-axis-tick",
-    );
-    expect(ticks).toHaveLength(data.length);
-    ticks.forEach((tick, index) => {
-      expect(tick.querySelector("title")).toHaveTextContent(data[index].name);
-      expect(tick.querySelector("text")).toHaveAttribute(
-        "transform",
-        "rotate(-90, 0, 8)",
+  it.each(["Collection Site", "Delivery Site", "Lane"])(
+    "rotates every %s label and preserves full names, order and values",
+    (group) => {
+      const { container } = render(
+        <PerformanceChart
+          title={`By ${group}`}
+          data={data}
+          color="#6863ae"
+          verticalLabels
+        />,
       );
-      expect(tick.querySelector("text")).toHaveStyle({ fontSize: "11px" });
-    });
-    expect(container.querySelector(".sr-only")).toHaveTextContent(
-      "AMTPJ -> DMM-PORT: 95.0%; RUH-HUB -> MED-HUB: 75.0%",
-    );
-    expect(
-      [...container.querySelectorAll(".recharts-label-list text")].map(
-        (label) => label.textContent,
-      ),
-    ).toEqual(["95.0%", "75.0%"]);
-  });
+      expect(container.querySelector("article")).toHaveClass(
+        "chart--vertical-labels",
+      );
+      const ticks = container.querySelectorAll(
+        ".recharts-xAxis .recharts-cartesian-axis-tick",
+      );
+      expect(ticks).toHaveLength(data.length);
+      ticks.forEach((tick, index) => {
+        expect(tick.querySelector("title")).toHaveTextContent(data[index].name);
+        expect(tick.querySelector("text")).toHaveAttribute(
+          "transform",
+          "rotate(-90, 0, 8)",
+        );
+        expect(tick.querySelector("text")).toHaveStyle({ fontSize: "11px" });
+      });
+      expect(container.querySelector(".sr-only")).toHaveTextContent(
+        "AMTPJ -> DMM-PORT: 95.0%; RUH-HUB -> MED-HUB: 75.0%",
+      );
+      expect(
+        [...container.querySelectorAll(".recharts-label-list text")].map(
+          (label) => label.textContent,
+        ),
+      ).toEqual(["95.0%", "75.0%"]);
+    },
+  );
 
   it("retains an unusually long lane name in its native tooltip and summary", () => {
     const name =

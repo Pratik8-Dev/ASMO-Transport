@@ -32,7 +32,7 @@ export const useDashboardData = (filters, page, sort) => {
         queryFn: ({ signal }) =>
           controlTowerApi.getShipments(
             filters,
-            { page, size: 9999, sort },
+            { page, size: 10, sort },
             signal,
           ),
         select: adaptShipmentPage,

@@ -25,11 +25,11 @@ React/Vite POC dashboard implemented against the documented Spring Boot API cont
 
 ## Chart presentation
 
-The lane chart uses vertical X-axis labels at the existing font size, with extra
-chart height to preserve the plot area. Labels longer than the 140px label budget
-are ellipsized; hovering a lane label shows its full name in a native tooltip.
-The existing bar tooltip and screen-reader summary retain the full lane names
-and values. Collection-site and delivery-site chart labels are unchanged.
+All three performance charts (collection site, delivery site, and lane) use
+vertical X-axis labels at the existing font size, with extra chart height to
+preserve the plot area. Labels longer than the 140px label budget are ellipsized;
+hovering a label shows its full name in a native tooltip. The existing bar tooltip
+and screen-reader summary retain the full names and values.
 
 ## Contract notes
 

@@ -164,6 +164,7 @@ export function DashboardPage() {
               title="On-Time Delivery % by Collection Site"
               data={rows}
               color="#4b8bc8"
+              verticalLabels
             />
           )}
         </AsyncPanel>
@@ -173,6 +174,7 @@ export function DashboardPage() {
               title="On-Time Delivery % by Delivery Site"
               data={rows}
               color="#3fa3a7"
+              verticalLabels
             />
           )}
         </AsyncPanel>
