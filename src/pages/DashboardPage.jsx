@@ -156,7 +156,8 @@ export function DashboardPage() {
     <main>
       <MockModeBanner />
       <header className="topbar">
-        <div className="brand">ASMO</div>
+        <div className="leftsection">
+          <div className="brand">ASMO</div>
         <div>
           <h1>
             Transport Management System (TMS)
@@ -164,6 +165,7 @@ export function DashboardPage() {
             Control Tower
           </h1>
           <p>Site, Origin &amp; Destination Performance</p>
+        </div>
         </div>
         <div className="meta">
           {/* <span>Data as of: {etl.data?.lastCompletedAt || "Unavailable"}</span>

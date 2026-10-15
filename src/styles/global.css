@@ -36,9 +36,14 @@ summary:focus-visible {
 main {
   min-height: 100vh;
 }
+.leftsection {
+  display: flex;
+  gap: 30px;
+}
 .topbar {
-  display: grid;
-  grid-template-columns: 180px minmax(330px, 1fr) minmax(320px, 1.1fr) auto;
+  display: flex;
+  justify-content: space-between;
+  /* grid-template-columns: 180px minmax(330px, 1fr) minmax(320px, 1.1fr) auto; */
   align-items: center;
   gap: 24px;
   padding: 14px 24px;
@@ -442,7 +447,11 @@ footer {
 }
 @media (max-width: 760px) {
   .topbar {
-    grid-template-columns: 1fr;
+    display: block;
+  }
+  .leftsection {
+    display: block;
+    margin-bottom: 16px;
   }
   .actions {
     grid-column: auto;
