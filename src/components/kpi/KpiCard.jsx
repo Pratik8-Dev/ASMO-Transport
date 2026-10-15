@@ -11,9 +11,9 @@ export function KpiCard({
     <article className={`kpi rag-${rag.toLowerCase()}`}>
       <div className="kpi-title">
         <strong>
-          {code}. {title}
+          {code} {title}
         </strong>
-        {standIn && <span className="badge">Stand-in</span>}
+        {/* {standIn && <span className="badge">Stand-in</span>} */}
       </div>
       <div className="kpi-value">{value}</div>
       {subtitle && <p>{subtitle}</p>}

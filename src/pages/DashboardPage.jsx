@@ -46,7 +46,7 @@ export function DashboardPage() {
       summary
         ? [
             {
-              code: "C1",
+              // code: "C1",
               title: "On-Time Delivery %",
               value: formatPercentage(summary.otd.rawPercentage),
               subtitle: `Validated: ${formatPercentage(summary.otd.validatedPercentage)}`,
@@ -59,7 +59,7 @@ export function DashboardPage() {
               standIn: summary.otd.standInApplied,
             },
             {
-              code: "R1",
+              // code: "R1",
               title: "Delivered Within Time Window %",
               value: formatPercentage(summary.window.percentage),
               subtitle: `${summary.window.numerator} of ${summary.window.denominator} deliveries`,
@@ -67,7 +67,7 @@ export function DashboardPage() {
               rag: summary.window.rag,
             },
             {
-              code: "R2",
+              // code: "R2",
               title: "Dwell Time at Site",
               value: formatHours(summary.dwell.collection),
               subtitle: `Delivery site: ${formatHours(summary.dwell.delivery)}`,
@@ -77,14 +77,14 @@ export function DashboardPage() {
               rag: summary.dwell.rag,
             },
             {
-              code: "R3",
+              // code: "R3",
               title: "Lane Transit Time",
               value: formatHours(summary.transit.median),
               subtitle: `Valid jobs: ${summary.transit.valid}`,
               lines: [`Excluded jobs: ${summary.transit.excluded}`],
             },
             {
-              code: "C2",
+              // code: "C2",
               title: "Collection Timeliness %",
               value: formatPercentage(summary.collection.percentage),
               subtitle: `${summary.collection.onTime} of ${summary.collection.collected} collected`,
@@ -108,17 +108,17 @@ export function DashboardPage() {
           <h1>
             Transport Management System (TMS)
             <br />
-            Control Tower - Proof of Concept
+            Control Tower
           </h1>
           <p>Site, Origin &amp; Destination Performance</p>
         </div>
         <div className="meta">
-          <span>Data as of: {etl.data?.lastCompletedAt || "Unavailable"}</span>
+          {/* <span>Data as of: {etl.data?.lastCompletedAt || "Unavailable"}</span>
           <span>
             SLA Rule Version: {summary?.otd.slaVersion || "Unavailable"}
           </span>
           <span>Working days: Sun-Thu (Fri, Sat off)</span>
-          <span>Stand-ins: ASN Date = Job Created On; Priority = Normal</span>
+          <span>Stand-ins: ASN Date = Job Created On; Priority = Normal</span> */}
         </div>
         <div className="actions">
           <button
@@ -204,7 +204,7 @@ export function DashboardPage() {
           <AsyncPanel query={data.dq}>
             {(dq) => <DataQualityPanel data={dq} />}
           </AsyncPanel>
-          <ScopePanel />
+          {/* <ScopePanel /> */}
         </aside>
       </section>
       <footer>
