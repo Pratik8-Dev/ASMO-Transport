@@ -72,10 +72,8 @@ main {
   display: flex;
   gap: 8px;
 }
-.actions button,
 .pager button,
-.state button,
-.secondary {
+.state button {
   border: 1px solid #a9c5e1;
   background: white;
   color: #0b2858;
@@ -85,14 +83,42 @@ main {
   align-items: center;
   gap: 6px;
 }
-.actions svg {
-  width: 20px;
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  padding: 6px 12px !important;
+  max-height : 35px;
+  border-radius: 6px;
+}
+.primary-btn {
+  background: #0b2858;
+  color: #fff;
+  border: none;
+}
+.secondary-btn {
+  border: 1px solid #a9c5e1;
+  background: white;
+  color: #0b2858;
+}
+.primary-svg {
+  fill: #fff;
+}
+svg {
+  width: 16px;
+}
+.filterbtn h3 {
+  margin: 0;
+  display: flex;
+  gap: 5px;
+  fill: #0b2858;
+}
+.filterbtn h3 svg {
+  fill: #0b2858;
 }
 .filters {
   margin: 12px;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 1fr));
-  gap: 10px;
   padding: 12px;
   border: 1px solid #b9d1e9;
   border-radius: 7px;
@@ -103,7 +129,7 @@ main {
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
 }
 .filters input,
 .filters select {
@@ -116,7 +142,7 @@ main {
 }
 .filter-note {
   grid-column: 1/-1;
-  margin: 0;
+  margin: 10px 0 0 0;
   color: #5a6880;
   font-size: 12px;
 }
@@ -164,7 +190,7 @@ main {
 .kpi-value {
   font-size: 34px;
   font-weight: 800;
-  margin: 17px 0 5px;
+  margin: 5px 0;
 }
 .kpi p,
 .kpi ul {
@@ -206,9 +232,6 @@ main {
 .chart-area {
   height: 250px;
 }
-.chart--vertical-labels .chart-area {
-  height: 342px;
-}
 .lower {
   display: grid;
   grid-template-columns: 2fr 1.1fr;
@@ -228,7 +251,7 @@ main {
 .dq li {
   display: flex;
   justify-content: space-between;
-  padding: 7px;
+  padding: 8px 0;
   border-bottom: 1px solid #dbe6f0;
 }
 .table-panel {
@@ -343,6 +366,21 @@ footer {
   background: #fff;
   font-size: 12px;
 }
+
+.labalsfilter {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.filterbtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 40px;
+  margin-bottom: 12px;
+}
+
 @keyframes pulse {
   to {
     background-position: -200% 0;
@@ -399,6 +437,11 @@ footer {
   }
   .actions {
     flex-wrap: wrap;
+  }
+  .labalsfilter {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
   }
   footer {
     gap: 10px;

@@ -122,6 +122,7 @@ export function DashboardPage() {
         </div>
         <div className="actions">
           <button
+            className="btn secondary-btn"
             disabled={!data.shipments.data?.content.length}
             onClick={() =>
               exportShipments(data.shipments.data.content, {
@@ -133,7 +134,8 @@ export function DashboardPage() {
             <Download />
             Export current page
           </button>
-          <button disabled={busy} onClick={refresh}>
+          <button className="btn primary-btn"
+          disabled={busy} onClick={refresh}>
             <RefreshCcw className={busy ? "spin" : ""} />
             Refresh
           </button>
