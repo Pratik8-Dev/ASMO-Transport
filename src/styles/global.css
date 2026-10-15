@@ -245,6 +245,12 @@ svg {
   gap: 10px;
   margin: 12px;
 }
+.chart--vertical-labels .chart-area {
+  height: 375px;
+}
+tspan {
+  font-size: 10px;
+}
 .panel {
   padding: 12px;
 }
